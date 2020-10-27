@@ -13,12 +13,27 @@ module.exports = app => {
 
     // Cuidado com ordem! Tem que vir antes de /categories/:id
     app.route('/categories/tree')
-        .all(app.config.passport.authenticate())
+       //.all(app.config.passport.authenticate())
         .get(app.api.category.getTree)
 
     app.route('/categories/:id')
-        .all(app.config.passport.authenticate())
+        //.all(app.config.passport.authenticate())
         .get(app.api.category.getById)
-        .put(admin(app.api.category.save))
-        .delete(admin(app.api.category.remove))
+        .put(app.api.category.save)
+        .delete(app.api.category.remove)
+        //.put(admin(app.api.category.save))
+        //.delete(admin(app.api.category.remove))
+
+    app.route('/articles')
+        .get(app.api.article.get)
+        .post(app.api.article.save)
+    
+    app.route('/articles/:id')
+        .get(app.api.article.getById)
+        .put(app.api.article.save)
+        .delete(app.api.article.remove)
+
+    app.route('/categories/:id/articles')
+        //.all(app.config.passport.authenticate())
+        .get(app.api.article.getByCategory)
 }
