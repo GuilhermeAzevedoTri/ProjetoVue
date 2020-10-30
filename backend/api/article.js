@@ -1,4 +1,3 @@
-
 const queries = require('./queries')
 
 module.exports = app => {
@@ -63,7 +62,6 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
     }
 
-    
     const getById = (req, res) => {
         app.db('articles')
             .where({ id: req.params.id })
