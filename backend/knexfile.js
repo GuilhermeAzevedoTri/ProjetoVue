@@ -1,5 +1,5 @@
 // Update with your config settings.
-
+//const {db} = require('./.env')
 module.exports = {
 
   /*development: {
@@ -38,7 +38,6 @@ module.exports = {
   },
   migrations: {
     tableName: 'knex_migrations'
-
   }
 
 };
