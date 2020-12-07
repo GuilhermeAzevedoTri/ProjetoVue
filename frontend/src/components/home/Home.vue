@@ -21,20 +21,18 @@ import { baseApiUrl } from '@/global'
 
 export default {
     name: 'Home',
-    components: {PageTitle, Stat},
-    data: function(){
-        return{
+    components: { PageTitle, Stat },
+    data: function() {
+        return {
             stat: {}
         }
     },
-
-    methods:{
-        getStats(){
+    methods: {
+        getStats() {
             axios.get(`${baseApiUrl}/stats`).then(res => this.stat = res.data)
         }
     },
-
-    mounted(){
+    mounted() {
         this.getStats()
     }
 }

@@ -3,40 +3,42 @@
         <a class="toggle" @click="toggleMenu" v-if="!hideToggle">
             <i class="fa fa-lg" :class="icon"></i>
         </a>
-        <h1 class="title">            
-            <router-link to="/">{{title}}</router-link>
+        <h1 class="title">
+            <router-link to="/">{{ title }}</router-link>
         </h1>
-        <UserDropdown v-if="!hideUserDropdown"/>
+        <UserDropdown v-if="!hideUserDropdown" />
     </header>
 </template>
 
 <script>
 import UserDropdown from './UserDropdown'
+
 export default {
-    name : 'Header' ,
-    components: {UserDropdown},
-    props:{
+    name: 'Header',
+    components: { UserDropdown },
+    props: {
         title: String,
         hideToggle: Boolean,
-        hideUserDropdown: Boolean,
+        hideUserDropdown: Boolean
     },
-    computed:{
-        icon(){
-            return this.$store.state.isMenuVisible ? "fa-angle-left" : 'fa-angle-down'
+    computed: {
+        icon() {
+            return this.$store.state.isMenuVisible ? "fa-angle-left" : "fa-angle-down"
         }
     },
-    methods:{
-        toggleMenu(){
-           this.$store.commit('toggleMenu')
+    methods: {
+        toggleMenu() {
+            this.$store.commit('toggleMenu')
         }
-    }   
+    }
 }
 </script>
 
 <style>
-    .header{
+    .header {
         grid-area: header;
-        background: linear-gradient(to right,#1e469a, #49a7c1 );
+        background: linear-gradient(to right, #1e469a, #49a7c1);
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -56,7 +58,7 @@ export default {
     }
 
     .title a:hover {
-        color: #fff;
+        color: #FFF;
         text-decoration: none;
     }
 
